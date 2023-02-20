@@ -22,27 +22,29 @@ def reduce_fractals(numerator, denominator):
 
 with reduce_fractals_tab:
     digit_range = st.slider("Digits of Numbers used", 1, 4, (1, 2))
+    exercise_count = st.slider("Number of exercises to be generated",1, 20, (1,5))
     numerator1 = None
     denominator1 = None
     numerator2 = None
     denominator2 = None
 
 
-    if st.button("generate exercise"):
-        numerator1 = random.randint(10**digit_range[0],10**digit_range[1])
-        denominator1 = random.randint(10**digit_range[0],10**digit_range[1])
-        numerator2 = random.randint(10**digit_range[0],10**digit_range[1])
-        denominator2 = random.randint(10**digit_range[0],10**digit_range[1])
+    if st.button("generate exercise(s)"):
+        st.text("Add and reduce the following expression(s)[solutions given for reference]:")
+        for i in range(exercise_count[1]):
+            numerator1 = random.randint(10**digit_range[0],10**digit_range[1])
+            denominator1 = random.randint(10**digit_range[0],10**digit_range[1])
+            numerator2 = random.randint(10**digit_range[0],10**digit_range[1])
+            denominator2 = random.randint(10**digit_range[0],10**digit_range[1])
 
-        st.text("Add and reduce the following expression:")
+            reduced = reduce_fractals((numerator1*denominator2)+(numerator2*denominator1),(denominator1*denominator2))
+            numerator_result = reduced[0]
+            denominator_result = reduced[1]
 
-        st.latex(fr'''\frac{{{numerator1}}}{{{denominator1}}} + \frac{{{numerator2}}}{{{denominator2}}}''')
 
-    if st.button("Show solution"):
-        reduced = reduce_fractals(numerator1+numerator2,denominator1+denominator2)
-        numerator_result = reduced[0]
-        denominator_result = reduced[1]
-        st.latex(fr'''\frac{{{numerator_result}}}{{{denominator_result}}}''')
+            st.latex(fr'''\frac{{{numerator1}}}{{{denominator1}}} + \frac{{{numerator2}}}{{{denominator2}}} = \frac{{{numerator_result}}}{{{denominator_result}}}''')
+
+
 
 
 
