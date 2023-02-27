@@ -2,85 +2,85 @@ import streamlit as st
 import random
 import math
 
-st.title("fractional calculation")
-st.caption("This page provides a overview of the easiest mathematical laws.")
-st.sidebar.success("Select page")
+st.title("Mathematische Regeln / Gesetze")
+st.caption("Diese Seite beinhaltet ")
+st.sidebar.success("Seite auswählen")
 
 
 
-basics_tab, fraction_laws_tab = st.tabs(["basics", "fraction-laws"])
+basics_tab, fraction_laws_tab = st.tabs(["Grundlagen", "Brüche"])
 
 
 
 with basics_tab:
 
 
-    with st.expander("Commutative law"):
+    with st.expander("Kommutativgesetz"):
         st.latex(fr'''a + b = b + a''')
         st.latex(fr'''a * b = b * a''')
         st.latex(fr'''a\% * b = b\% * a''')
 
 
 
-    with st.expander("associative law"):
+    with st.expander("Assoziativgesetz"):
         st.latex(fr'''a + (b + c) = (a + b) + c''')
         st.latex(fr'''a * (b * c) = (a * b) * c''')
 
 
 
-    with st.expander("distributive law"):
+    with st.expander("Distributivgesetz"):
         st.latex(fr'''a * b + a * c = a * (b + c)''')
 
 
 with fraction_laws_tab:
 
-    with st.expander("definitions"):
-        st.subheader("fraction definition:")
+    with st.expander("Definitionen"):
+        st.subheader("Bruchdefinition:")
         st.latex(fr'''\frac{{a}}{{b}}''')
-        st.write("is a fraction with **a** being **numerator** and **b** being **denominator** wih b ≠ 0")
+        st.write("ist ein Bruch, dabei heißt **a**  **Zähler** und **b** **Nenner** mit b ≠ 0")
 
 
 
-        st.subheader("Reciprocal:")
+        st.subheader("Kehrbrüche:")
         st.write("If a ≠ 0:")
         st.latex(fr'''\frac{{b}}{{a}}''')
-        st.write("is the reciprocal to")
+        st.write("ist Kehrbrüche zu")
         st.latex(fr'''\frac{{a}}{{b}}''')
-        st.write("It applies:")
+        st.write("Es gilt:")
         st.latex(fr'''\frac{{a}}{{b}} * \frac{{b}}{{a}} = 1''')
 
-    with st.expander("expanding / reducing fractions"):
-        st.subheader("Expanding fractions:")
+    with st.expander("Erweitern / Kürzen"):
+        st.subheader("Brüche erweitern:")
         st.latex(fr'''\frac{{a}}{{b}} = \frac{{a * k}}{{b * k}}''')
 
-        st.subheader("Reducing fractions")
+        st.subheader("Brüche kürzen")
         st.latex(fr'''\frac{{a}}{{b}} = \frac{{a ÷ k}}{{b ÷ k}}''')
 
 
-    with st.expander("addition, subtraction, multiplication, division"):
+    with st.expander("Addition, Subtraktion, Multiplikation, Division"):
         st.write("Addition")
         st.latex(fr'''\frac{{a}}{{b}} + \frac{{c}}{{b}} = \frac{{a + c}}{{b}}''')
         st.latex(fr'''\frac{{a}}{{b}} + \frac{{c}}{{d}} = \frac{{a * d + b * c}}{{b * d}}''')
 
-        st.write("Subtraction")
+        st.write("Subtraktion")
         st.latex(fr'''\frac{{a}}{{b}} - \frac{{c}}{{b}} = \frac{{a - c}}{{b}}''')
         st.latex(fr'''\frac{{a}}{{b}} - \frac{{c}}{{d}} = \frac{{a * d - b * c}}{{b * d}}''')
 
-        st.write("Multiplication")
+        st.write("Multiplikation")
         st.latex(fr'''\frac{{a}}{{b}} * \frac{{c}}{{d}} = \frac{{a * c}}{{b * d}}''')
 
         st.write("Division")
         st.latex(fr'''\frac{{a}}{{b}} ÷ \frac{{c}}{{d}} = \frac{{a}}{{b}} * \frac{{d}}{{c}} = \frac{{a * d}}{{b * c}}''')
 
 
-    with st.expander("fraction notations"):
-        st.subheader("decimal notation")
-        st.latex(fr'''\frac{{a}}{{b}} = a ÷ b = c.d \quad \text{{(round to get decimal notation)}}''')
+    with st.expander("verschiedene Bruchschreibweisen"):
+        st.subheader("Dezimalschreibweise")
+        st.latex(fr'''\frac{{a}}{{b}} = a ÷ b = c.d \quad \text{{(runde, um Dezimalbruch zu erhalten)}}''')
         
-        st.subheader("mixed number")
+        st.subheader("Gemischte Schreibweise")
         st.latex(fr'''\frac{{a}}{{b}} = c\frac{{d}}{{b}}''')
 
-        st.subheader("percentages")
+        st.subheader("Prozent")
         st.latex(fr'''a.b = (a.b * 100)\%''')
 
 

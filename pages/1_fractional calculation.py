@@ -2,13 +2,13 @@ import streamlit as st
 import random
 import math
 
-st.title("fractional calculation")
-st.caption("This page provides a simple, yet useful tool to create different exercises related to fractional calculation")
-st.sidebar.success("Select page")
+st.title("Bruchrechnen")
+st.caption("Diese Seite bietet ein einfaches, aber nützliches Tool zur Erstellung verschiedener Übungen zum Bruchrechnen.")
+st.sidebar.success("Seite auswählen")
 
 
 
-reduce_fractals_tab, add_fractals_tab, multiply_fractals_tab = st.tabs(["Reduce fractals", "Add/Substract fractals", "Multiply / Divide fractals"])
+reduce_fractals_tab, add_fractals_tab, multiply_fractals_tab = st.tabs(["Brüche kürzen", "Brüche addieren/subtrahieren", "Brüche multiplizieren/dividieren"])
 
 def reduce_fractals(numerator, denominator):
     gcd = math.gcd(numerator,denominator)
@@ -21,11 +21,11 @@ def reduce_fractals(numerator, denominator):
 
 
 with reduce_fractals_tab:
-    digit_range = st.slider("Digits of Numbers used", 1, 4, (1, 2),key="reduce_fractals_tab-digit_range")
-    exercise_count = st.slider("Number of exercises to be generated",1, 20, (1,5),key="reduce_fractals_tab-exercise_count")
+    digit_range = st.slider("Anzahl Stellen der Brüche", 1, 4, (1, 2),key="reduce_fractals_tab-digit_range")
+    exercise_count = st.slider("Anzahl der Übungen",1, 20, (1,5),key="reduce_fractals_tab-exercise_count")
 
-    if st.button("generate exercise(s)",key="reduce_fractals_tab-generate_button"):
-        st.text("reduce the following fractions")
+    if st.button("Aufgaben erstellen",key="reduce_fractals_tab-generate_button"):
+        st.text("Kürze die Brüche:")
         for i in range(exercise_count[1]):
             numerator = random.randint(10**0,10**digit_range[1])
             denominator = random.randint(10**0,10**digit_range[1])
@@ -37,22 +37,22 @@ with reduce_fractals_tab:
             denominator_result = reduced[1]
 
             st.latex(fr'''\frac{{{numerator}}}{{{denominator}}} = \frac{{{numerator_result}}}{{{denominator_result}}}''')
-            st.text(f"(greatest common denominator: {gcd})")
+            st.text(f"(ggV: {gcd})")
 
 
 
 
 with add_fractals_tab:
-    digit_range = st.slider("Digits of Numbers used", 1, 4, (1, 2),key="add_fractals_tab-digit_range")
-    exercise_count = st.slider("Number of exercises to be generated",1, 20, (1,5),key="add_fractals_tab-exercise_count")
+    digit_range = st.slider("Anzahl Stellen der Brüche", 1, 4, (1, 2),key="add_fractals_tab-digit_range")
+    exercise_count = st.slider("Anzahl der Übungen",1, 20, (1,5),key="add_fractals_tab-exercise_count")
     numerator1 = None
     denominator1 = None
     numerator2 = None
     denominator2 = None
 
 
-    if st.button("generate exercise(s)",key="add_fractals_tab-generate_button"):
-        st.text("Add and reduce the following expression(s)[solutions given for reference]:")
+    if st.button("Aufgaben erstellen",key="add_fractals_tab-generate_button"):
+        st.text("Addiere/Subtrahiere und kürze die Brüche:")
         for i in range(exercise_count[1]):
             numerator1 = random.randint(10**0,10**digit_range[1])
             denominator1 = random.randint(10**0,10**digit_range[1])
@@ -81,17 +81,19 @@ with add_fractals_tab:
 
 
 
+
+
 with multiply_fractals_tab:
-    digit_range = st.slider("Digits of Numbers used", 1, 4, (1, 2),key="multiply_fractals_tab-digit_range")
-    exercise_count = st.slider("Number of exercises to be generated",1, 20, (1,5),key="multiply_fractals_tab-exercise_count")
+    digit_range = st.slider("Anzahl Stellen der Brüche", 1, 4, (1, 2),key="multiply_fractals_tab-digit_range")
+    exercise_count = st.slider("Anzahl der Übungen",1, 20, (1,5),key="multiply_fractals_tab-exercise_count")
     numerator1 = None
     denominator1 = None
     numerator2 = None
     denominator2 = None
 
 
-    if st.button("generate exercise(s)",key="multiply_fractals_tab-generate_button"):
-        st.text("Add and reduce the following expression(s)[solutions given for reference]:")
+    if st.button("Aufgaben erstellen",key="multiply_fractals_tab-generate_button"):
+        st.text("Multipliziere / Dividiere und kürze die Brüche:")
         for i in range(exercise_count[1]):
             numerator1 = random.randint(10**0,10**digit_range[1])
             denominator1 = random.randint(10**0,10**digit_range[1])
