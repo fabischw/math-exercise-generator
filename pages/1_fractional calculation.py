@@ -58,13 +58,25 @@ with add_fractals_tab:
             denominator1 = random.randint(10**0,10**digit_range[1])
             numerator2 = random.randint(10**0,10**digit_range[1])
             denominator2 = random.randint(10**0,10**digit_range[1])
+            add = random.choice([True, False])
+            
+            if add:
+                add = "+"
+                reduced = reduce_fractals((numerator1*denominator2)+(numerator2*denominator1),(denominator1*denominator2))
+            else:
+                add = "-"
+                reduced = reduce_fractals((numerator1*denominator2)-(numerator2*denominator1),(denominator1*denominator2))
 
-            reduced = reduce_fractals((numerator1*denominator2)+(numerator2*denominator1),(denominator1*denominator2))
+            
             numerator_result = reduced[0]
             denominator_result = reduced[1]
 
 
-            st.latex(fr'''\frac{{{numerator1}}}{{{denominator1}}} + \frac{{{numerator2}}}{{{denominator2}}} = \frac{{{numerator_result}}}{{{denominator_result}}}''')
+            st.latex(fr'''\frac{{{numerator1}}}{{{denominator1}}} {add} \frac{{{numerator2}}}{{{denominator2}}} = \frac{{{numerator_result}}}{{{denominator_result}}}''')
+
+
+
+
 
 
 
@@ -85,12 +97,20 @@ with multiply_fractals_tab:
             denominator1 = random.randint(10**0,10**digit_range[1])
             numerator2 = random.randint(10**0,10**digit_range[1])
             denominator2 = random.randint(10**0,10**digit_range[1])
+            multiply = random.choice([True,False])
 
-            reduced = reduce_fractals(numerator1*numerator2,denominator1*denominator2)
+            if multiply:
+                multiply = "*"
+                reduced = reduce_fractals(numerator1*numerator2,denominator1*denominator2)
+            else:
+                multiply = "/"
+                reduced = reduce_fractals(numerator1*denominator2,denominator1*numerator2)
+
+            
             numerator_result = reduced[0]
             denominator_result = reduced[1]
 
 
-            st.latex(fr'''\frac{{{numerator1}}}{{{denominator1}}} * \frac{{{numerator2}}}{{{denominator2}}} = \frac{{{numerator_result}}}{{{denominator_result}}}''')
+            st.latex(fr'''\frac{{{numerator1}}}{{{denominator1}}} {multiply} \frac{{{numerator2}}}{{{denominator2}}} = \frac{{{numerator_result}}}{{{denominator_result}}}''')
 
 
