@@ -8,7 +8,7 @@ st.sidebar.success("Select page")
 
 
 
-reduce_fractals_tab, add_fractals_tab, multiply_fractals_tab = st.tabs(["Reduce fractals", "Add/Substract fractals", "Multiply / Divide fractals"])
+reduce_fractals_tab, add_fractals_tab, multiply_fractals_tab, percentages_tab = st.tabs(["Reduce fractals", "Add/Substract fractals", "Multiply / Divide fractals","Percentages"])
 
 def reduce_fractals(numerator, denominator):
     gcd = math.gcd(numerator,denominator)
@@ -112,5 +112,33 @@ with multiply_fractals_tab:
 
 
             st.latex(fr'''\frac{{{numerator1}}}{{{denominator1}}} {multiply} \frac{{{numerator2}}}{{{denominator2}}} = \frac{{{numerator_result}}}{{{denominator_result}}}''')
+
+
+
+
+
+with percentages_tab:
+    digit_range = st.slider("Digits of Percentages used", 1, 4, (1, 2),key="percentages_tab-digit_range")
+    value_range = st.slider("Digits of value used", 1, 4, (1,2), key="percentages_tab-value_range")
+    exercise_count = st.slider("Number of exercises to be generated",1, 20, (1,5),key="percentages_tab-exercise_count")
+    numerator1 = None
+    denominator1 = None
+    numerator2 = None
+    denominator2 = None
+
+
+    if st.button("generate exercise(s)",key="percentages_tab-generate_button"):
+        st.text("Multiply the given percentages with the given values[solutions given for reference]:")
+        st.text("❗ Please acknowledge that results may not be exact due to the way fractions are computed.")
+        for i in range(exercise_count[1]):
+            percentage = round(random.uniform(0, 1), digit_range[1])
+
+            percentage_display = round(percentage * 100, 5)
+
+            value = random.randint(10**0,10**digit_range[1])
+
+            result = round(percentage * value, 5)
+
+            st.latex(fr'''{{{percentage_display}}} \% * {{{value}}} = {{{result}}}''')
 
 
