@@ -1,3 +1,4 @@
+# importing modules
 import streamlit as st
 import random
 import math
@@ -7,12 +8,12 @@ st.caption("This page provides a overview of the easiest mathematical laws.")
 st.sidebar.success("Select page")
 
 
-
+#generating tabs
 basics_tab, fraction_laws_tab = st.tabs(["basics", "fraction-laws"])
 
 
 
-with basics_tab:
+with basics_tab:# basics tab
 
 
     with st.expander("Commutative law"):
@@ -32,9 +33,9 @@ with basics_tab:
         st.latex(fr'''a * b + a * c = a * (b + c)''')
 
 
-with fraction_laws_tab:
+with fraction_laws_tab:# fraction laws tab
 
-    with st.expander("definitions"):
+    with st.expander("definitions"):#definitions section
         st.subheader("fraction definition:")
         st.latex(fr'''\frac{{a}}{{b}}''')
         st.write("is a fraction with **a** being **numerator** and **b** being **denominator** wih b ≠ 0")
@@ -49,7 +50,7 @@ with fraction_laws_tab:
         st.write("It applies:")
         st.latex(fr'''\frac{{a}}{{b}} * \frac{{b}}{{a}} = 1''')
 
-    with st.expander("expanding / reducing fractions"):
+    with st.expander("expanding / reducing fractions"):#expanding / reducing fractions section
         st.subheader("Expanding fractions:")
         st.latex(fr'''\frac{{a}}{{b}} = \frac{{a * k}}{{b * k}}''')
 
@@ -57,7 +58,7 @@ with fraction_laws_tab:
         st.latex(fr'''\frac{{a}}{{b}} = \frac{{a ÷ k}}{{b ÷ k}}''')
 
 
-    with st.expander("addition, subtraction, multiplication, division"):
+    with st.expander("addition, subtraction, multiplication, division"):#base calculations with fractions section
         st.write("Addition")
         st.latex(fr'''\frac{{a}}{{b}} + \frac{{c}}{{b}} = \frac{{a + c}}{{b}}''')
         st.latex(fr'''\frac{{a}}{{b}} + \frac{{c}}{{d}} = \frac{{a * d + b * c}}{{b * d}}''')
@@ -73,7 +74,7 @@ with fraction_laws_tab:
         st.latex(fr'''\frac{{a}}{{b}} ÷ \frac{{c}}{{d}} = \frac{{a}}{{b}} * \frac{{d}}{{c}} = \frac{{a * d}}{{b * c}}''')
 
 
-    with st.expander("fraction notations"):
+    with st.expander("fraction notations"):#fraction notations section
         st.subheader("decimal notation")
         st.latex(fr'''\frac{{a}}{{b}} = a ÷ b = c.d \quad \text{{(round to get decimal notation)}}''')
         
